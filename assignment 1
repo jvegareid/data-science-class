@@ -1,0 +1,14 @@
+#data viz scatterplot 2
+ggplot(data = penguins,
+aes(x = bill_length_mm, y = bill_depth_mm)) + 
+geom_point(aes(color = species, shape = species), 
+size = 3, alpha = .8) +
+#theme_minimal() +
+scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+labs(title = "penguin bills, palmer station LTER", 
+subtitle = "bill length and bill depth for adelie, chinstrap, and gentoo penguins",
+x = "bill length (mm)",
+y = "bill depth (mm)",
+color = "penguin species",
+shape = "penguin species") + 
+theme_minimal()

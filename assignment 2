@@ -1,0 +1,31 @@
+#class and levels
+class(penguins$species)
+class(penguins$island)
+class(penguins$bill_length_mm)
+class(penguins$bill_depth_mm)
+class(penguins$flipper_length_mm)
+class(penguins$body_mass_g)
+class(penguins$sex)
+levels(penguins$species)
+levels(penguins$island)
+levels(penguins$bill_length_mm)
+levels(penguins$bill_depth_mm)
+levels(penguins$flipper_length_mm)
+levels(penguins$body_mass_g)
+levels(penguins$sex)
+
+#bar graph counts > colorblind palettes
+penguins %>%
+  count(species) %>%
+  ggplot() + geom_col(aes(x = species, y = n, fill = species)) + 
+  geom_label(aes(x = species, y = n, label = n)) + 
+  scale_fill_manual(values = c("#009E73","#CC79A7","gray")) +
+  theme_minimal() +
+  labs(title = 'number of penguins species')
+  
+#variable summary
+summary(penguins$species)
+summary(penguins$island)
+summary(penguins$flipper_length_mm)
+summary(penguins$body_mass_g)
+summary(penguins$bill_depth_mm)
